@@ -23,3 +23,5 @@ jobs:
               run: npm run build
             - name: test
               run: npm test
+              env:
+                  RIBBON_API_KEY: ${{secrets.RIBBON_API_KEY}}
