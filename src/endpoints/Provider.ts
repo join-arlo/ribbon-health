@@ -7,7 +7,7 @@ import {
     RibbonSearchResponseParameterized,
     RibbonEndpoint,
     RibbonSearchRequestPaginated,
-} from 'src/ribbon'
+} from 'src/types/Ribbon'
 import { Location } from 'src/endpoints/Location'
 
 type ProviderLocation = Location & {

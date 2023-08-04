@@ -1,4 +1,4 @@
-import { RibbonSearchRequest, RibbonSearchResponsePaginated, RibbonEndpoint } from 'src/ribbon'
+import { RibbonSearchRequest, RibbonSearchResponsePaginated, RibbonEndpoint } from 'src/types/Ribbon'
 
 export type Insurance = {
     uuid: string

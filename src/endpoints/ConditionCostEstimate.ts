@@ -1,5 +1,5 @@
 import { Gender } from 'src/types/Gender'
-import { RibbonSearchRequest, RibbonSearchResponseParameterized } from 'src/ribbon'
+import { RibbonSearchRequest, RibbonSearchResponseParameterized } from 'src/types/Ribbon'
 
 export type ConditionCostEstimate = {
     one_year: number

@@ -1,4 +1,4 @@
-import { RibbonSearchResponsePaginated, RibbonSearchRequestPaginated } from 'src/ribbon'
+import { RibbonSearchResponsePaginated, RibbonSearchRequestPaginated } from 'src/types/Ribbon'
 import { Value } from 'src/types/Value'
 
 export type ClinicalAreaType = 'providers' | 'locations'

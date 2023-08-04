@@ -1,15 +1,4 @@
-import { Locations } from 'src/endpoints/Location'
-import { Providers } from 'src/endpoints/Provider'
-import * as dotenv from 'dotenv'
-import { Insurances } from 'src/endpoints/Insurance'
 import { searchRequestParameters } from 'src/utils'
-
-dotenv.config()
-
-export type RibbonOptions = {
-    url: 'https://api.ribbonhealth.com/v1'
-    apiKey: string
-}
 
 export type RibbonSearchRequest<T> = T
 
@@ -52,6 +41,11 @@ export type RibbonSearchResponsePaginated<T, P> = {
     results: T[]
 }
 
+export type RibbonOptions = {
+    url: 'https://api.ribbonhealth.com/v1'
+    apiKey: string
+}
+
 export class RibbonEndpoint<TRequest, TResponse> {
     options: RibbonOptions
     endpoint: string
@@ -74,20 +68,5 @@ export class RibbonEndpoint<TRequest, TResponse> {
         const data: TResponse = await response.json()
 
         return data
-    }
-}
-
-export class Ribbon {
-    options: RibbonOptions
-
-    providers: Providers
-    locations: Locations
-    insurances: Insurances
-
-    constructor(options: RibbonOptions) {
-        this.options = options
-        this.providers = new Providers(options, '/custom/providers')
-        this.locations = new Locations(options, '/custom/locations')
-        this.insurances = new Insurances(options, '/custom/insurances')
     }
 }

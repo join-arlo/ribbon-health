@@ -1,6 +1,6 @@
-import { RibbonEndpoint } from 'src/ribbon'
+import { RibbonEndpoint } from 'src/types/Ribbon'
 import { Insurance } from 'src/endpoints/Insurance'
-import { RibbonSearchResponseParameterized, RibbonSearchRequest } from 'src/ribbon'
+import { RibbonSearchResponseParameterized, RibbonSearchRequest } from 'src/types/Ribbon'
 import { AddressDetails } from 'src/types/AddressDetails'
 
 export type Location = {

@@ -1,4 +1,4 @@
-import { RibbonSearchRequest, RibbonSearchResponse } from 'src/ribbon'
+import { RibbonSearchRequest, RibbonSearchResponse } from 'src/types/Ribbon'
 
 export type ProcedureCostEstimate = {
     minimum: number

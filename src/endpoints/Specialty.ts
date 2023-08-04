@@ -1,7 +1,7 @@
 import {
     RibbonSearchRequest,
     RibbonSearchResponsePaginated,
-} from 'src/ribbon'
+} from 'src/types/Ribbon'
 
 export type Specialty = {
     uuid: string

@@ -1,5 +1,5 @@
 import { Value } from 'src/types/Value'
-import { RibbonSearchRequest, RibbonSearchResponse } from 'src/ribbon'
+import { RibbonSearchRequest, RibbonSearchResponse } from 'src/types/Ribbon'
 
 export type Language = Value
 

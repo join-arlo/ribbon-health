@@ -1,4 +1,4 @@
-import { RibbonSearchResponsePaginated, RibbonSearchRequest } from 'src/ribbon'
+import { RibbonSearchResponsePaginated, RibbonSearchRequest } from 'src/types/Ribbon'
 import { Value } from 'src/types/Value'
 
 export type ConditionModule = 'focus_areas' | 'condition_cost_estimate'

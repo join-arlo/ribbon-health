@@ -1,4 +1,4 @@
-import { RibbonSearchRequest, RibbonSearchResponsePaginated } from 'src/ribbon'
+import { RibbonSearchRequest, RibbonSearchResponsePaginated } from 'src/types/Ribbon'
 
 export type Procedure = {
     uuid: string

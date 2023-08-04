@@ -1,9 +1,9 @@
 import { SearchInsurancesResponse } from 'src/index'
-import { Ribbon } from 'src/ribbon'
+import { RibbonClient } from 'src/client'
 import typia from 'typia'
 
 test('Test SearchInsurancesResponse', async () => {
-    const ribbon = new Ribbon({
+    const ribbon = new RibbonClient({
         url: 'https://api.ribbonhealth.com/v1',
         apiKey: process.env.RIBBON_API_KEY as string,
     })
