@@ -1,12 +1,11 @@
 import { Value } from 'src/types/Value'
-import { SearchRequest, Response } from 'src/endpoints/Common'
+import { RibbonSearchRequest, RibbonSearchResponse } from 'src/ribbon'
 
 export type Language = Value
 
-export type LanguageSearchOptions = {
+export type SearchLanguagesParameters = {
     search?: string
 }
 
-export type LanguagesRequest = SearchRequest<LanguageSearchOptions>
-
-export type LanguagesResponse = Response<Language>
+export type SearchLanguagesRequest = RibbonSearchRequest<SearchLanguagesParameters>
+export type SearchLanguagesResponse = RibbonSearchResponse<Language>

@@ -1,4 +1,4 @@
-import { SearchRequest, Response } from 'src/endpoints/Common'
+import { RibbonSearchRequest, RibbonSearchResponse } from 'src/ribbon'
 
 export type ProcedureCostEstimate = {
     minimum: number
@@ -6,11 +6,10 @@ export type ProcedureCostEstimate = {
     maximum: number
 }
 
-export type ProcedureCostEstimateSearchOptions = {
+export type SearchProcedureCostEstimateParameters = {
     procedure_ids: string[]
     member_zip: string
 }
 
-export type ProcedureCostEstimateRequest = SearchRequest<ProcedureCostEstimateSearchOptions>
-
-export type ProcedureCostEstimateResponse = Response<ProcedureCostEstimateSearchOptions>
+export type SearchProcedureCostEstimateRequest = RibbonSearchRequest<SearchProcedureCostEstimateParameters>
+export type SearchProcedureCostEstimateResponse = RibbonSearchResponse<SearchProcedureCostEstimateParameters>

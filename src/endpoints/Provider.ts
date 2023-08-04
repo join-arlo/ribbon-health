@@ -1,15 +1,14 @@
-import { Insurance, InsuranceSearchCriteria } from 'src/endpoints/Insurance'
+import { Insurance } from 'src/endpoints/Insurance'
 import { Organization } from 'src/endpoints/Organization'
 import { Specialty } from 'src/endpoints/Specialty'
 import { Gender } from 'src/types/Gender'
 import { Value } from 'src/types/Value'
 import {
-    PaginationAndSearchConfigurationOptions,
-    ResponseWithSearchOptions,
+    RibbonSearchResponseParameterized,
     RibbonEndpoint,
-    SearchRequest,
-} from 'src/endpoints/Common'
-import { Location, LocationSearchCriteria } from 'src/endpoints/Location'
+    RibbonSearchRequestPaginated,
+} from 'src/ribbon'
+import { Location } from 'src/endpoints/Location'
 
 type ProviderLocation = Location & {
     faxes?: {
@@ -21,6 +20,15 @@ type ProviderLocation = Location & {
 type ProviderSpecialty = Specialty & {
     is_primary?: boolean
 }
+
+export type PanelAges =
+    | 'Pediatric (0-12)'
+    | 'Adolescent (13-21)'
+    | 'Adult (22-44)'
+    | 'Adult (45-64)'
+    | 'Senior (65 and over)'
+
+export type PanelSexes = 'Both female and male' | 'Primarily female' | 'Primarily male'
 
 export type Provider = {
     npi: string
@@ -53,7 +61,7 @@ export type Provider = {
         ages: string[]
         sexes: string
     }
-    // clinical_areas?: {} // TODO
+    clinical_areas?: {} // TODO
     conditions?: Value[]
     treatments?: Value[]
     procedures?: {
@@ -78,7 +86,8 @@ export type Provider = {
     }
 }
 
-export type ProviderSearchCriteria = {
+export type SearchProvidersParameters = {
+    // ProviderSearchCriteria
     npis?: string[] | number[]
     name?: string
     provider_types?: string[]
@@ -89,21 +98,18 @@ export type ProviderSearchCriteria = {
     language?: string
     _excl_language?: string
     min_rating?: number
-}
 
-export type ProviderLocationSearchCriteria = Omit<LocationSearchCriteria, 'location_ids' | '_excl_location_ids'> & {
+    //LocationSearchCriteria
     location_within_distance?: boolean
     virtual_search?: boolean
     min_location_confidence?: number
-}
 
-export type ProviderInsurancesSearchCriteria = InsuranceSearchCriteria & {
+    // ProviderInsurancesSearchCriteria
     location_insurance_ids?: string[]
     _excl_location_insurance_ids?: string[]
     national_bluecard?: boolean
-}
 
-export type SpecialtySearchCriteria = {
+    // SpecialtySearchCriteria
     specialty_ids?: string[]
     _excl_specialty_ids?: string[]
     specialty?: string
@@ -112,58 +118,32 @@ export type SpecialtySearchCriteria = {
     _excl_specialty_ids_primary?: string[]
     specialty_primary?: string
     _excl_specialty_primary?: string
-}
 
-export type ProcedureSearchCriteria = {
+    // ProcedureSearchCriteria
     procedure_ids?: string[]
     _excl_procedure_ids?: string[]
     procedure?: string
     _excl_procedure?: string
-}
 
-export type PanelAges =
-    | 'Pediatric (0-12)'
-    | 'Adolescent (13-21)'
-    | 'Adult (22-44)'
-    | 'Adult (45-64)'
-    | 'Senior (65 and over)'
-
-export type PanelSexes = 'Both female and male' | 'Primarily female' | 'Primarily male'
-
-export type FocusAreaSearchCriteria = {
+    // FocusAreaSearchCriteria
     clinical_area?: string
     clinical_area_ids?: string[]
     condition?: string
     condition_ids?: string[]
     treatment?: string
-
     treatment_ids?: string[]
     panel_ages?: PanelAges[]
     panel_sexes?: PanelSexes
-}
 
-export type CostAndQualitySearchCriteria = {
+    // CostAndQualitySearchCriteria
     min_outcomes_index?: number
     min_efficiency_index?: number
-}
 
-export type ProviderOrganizationSearchCriteria = {
+    // ProviderOrganizationSearchCriteria
     location_organization_ids?: string[]
     _excl_location_organization_ids?: string[]
 }
 
-export type ProviderSearchAllCriteria = ProviderSearchCriteria &
-    ProviderLocationSearchCriteria &
-    InsuranceSearchCriteria &
-    SpecialtySearchCriteria &
-    ProcedureSearchCriteria &
-    FocusAreaSearchCriteria &
-    CostAndQualitySearchCriteria &
-    ProviderOrganizationSearchCriteria &
-    PaginationAndSearchConfigurationOptions<Provider>
-
-export type ProvidersRequest = SearchRequest<ProviderSearchAllCriteria>
-
-export type ProvidersResponse = ResponseWithSearchOptions<Provider, ProviderSearchAllCriteria>
-
-export class Providers extends RibbonEndpoint<ProvidersRequest, ProvidersResponse> {}
+export type SearchProvidersRequest = RibbonSearchRequestPaginated<SearchProvidersParameters>
+export type SearchProvidersResponse = RibbonSearchResponseParameterized<Provider, SearchProvidersParameters>
+export class Providers extends RibbonEndpoint<SearchProvidersRequest, SearchProvidersResponse> {}

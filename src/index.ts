@@ -1,4 +1,4 @@
-export { Ribbon } from './ribbon'
+export * from './ribbon'
 export * from 'src/endpoints/ClinicalArea'
 export * from 'src/endpoints/ConditionCostEstimate'
 export * from 'src/endpoints/Condition'

@@ -1,5 +1,5 @@
 import { Gender } from 'src/types/Gender'
-import { SearchRequest, ResponseWithSearchOptions } from 'src/endpoints/Common'
+import { RibbonSearchRequest, RibbonSearchResponseParameterized } from 'src/ribbon'
 
 export type ConditionCostEstimate = {
     one_year: number
@@ -8,16 +8,16 @@ export type ConditionCostEstimate = {
     lifetime: number
 }
 
-export type ConditionCostEstimateSearchOptions = {
+export type SearchConditionCostEstimateParamters = {
     condition_ids: string[]
     member_age: number
     member_zip: string
     member_gender: Gender
 }
 
-export type ConditionCostEstimateRequest = SearchRequest<ConditionCostEstimateSearchOptions>
+export type SearchConditionCostEstimateRequest = RibbonSearchRequest<SearchConditionCostEstimateParamters>
 
-export type ConditionCostEstimateResponse = ResponseWithSearchOptions<
-    ConditionCostEstimateSearchOptions,
+export type SearchConditionCostEstimateResponse = RibbonSearchResponseParameterized<
+    SearchConditionCostEstimateParamters,
     ConditionCostEstimate
 >

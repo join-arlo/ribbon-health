@@ -1,8 +1,7 @@
 import {
-    PaginationAndSearchConfigurationOptions,
-    SearchRequest,
-    ResponsePaginatedWithSearchOptions,
-} from 'src/endpoints/Common'
+    RibbonSearchRequest,
+    RibbonSearchResponsePaginated,
+} from 'src/ribbon'
 
 export type Specialty = {
     uuid: string
@@ -20,10 +19,10 @@ export type Specialty = {
     provider_type: string
 }
 
-export type SpecialtieSearchOptions = {
+export type SearchSpecialtiesParameters = {
     search?: string
     provider_type?: string
 }
 
-export type SpecialtiesRequest = SearchRequest<SpecialtieSearchOptions>
-export type SpecialtiesResponse = ResponsePaginatedWithSearchOptions<Specialty, SpecialtieSearchOptions>
+export type SearchSpecialtiesRequest = RibbonSearchRequest<SearchSpecialtiesParameters>
+export type SearchSpecialtiesResponse = RibbonSearchResponsePaginated<Specialty, SearchSpecialtiesParameters>

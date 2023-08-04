@@ -1,8 +1,4 @@
-import {
-    PaginationAndSearchConfigurationOptions,
-    SearchRequest,
-    ResponsePaginatedWithSearchOptions,
-} from 'src/endpoints/Common'
+import { RibbonSearchResponsePaginated, RibbonSearchRequestPaginated } from 'src/ribbon'
 import { Value } from 'src/types/Value'
 
 export type ClinicalAreaType = 'providers' | 'locations'
@@ -16,7 +12,7 @@ export type ClinicalArea = {
     specialties?: Value[]
 }
 
-export type ClinicalAreaSearchOptions = PaginationAndSearchConfigurationOptions<ClinicalArea> & {
+export type SearchClinicalAreasParameters = {
     search?: string
     clinical_area?: string
     specialty_ids?: string[]
@@ -27,6 +23,5 @@ export type ClinicalAreaSearchOptions = PaginationAndSearchConfigurationOptions<
     type?: ClinicalAreaType
 }
 
-export type ClinicalAreasRequest = SearchRequest<ClinicalAreaSearchOptions>
-
-export type ClinicalAreasResponse = ResponsePaginatedWithSearchOptions<ClinicalArea, ClinicalAreaSearchOptions>
+export type SearchClinicalAreasRequest = RibbonSearchRequestPaginated<SearchClinicalAreasParameters>
+export type SearchClinicalAreasResponse = RibbonSearchResponsePaginated<ClinicalArea, SearchClinicalAreasParameters>

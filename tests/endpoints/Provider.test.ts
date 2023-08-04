@@ -1,14 +1,14 @@
-import { ProvidersResponse } from 'src/index'
+import { SearchProvidersResponse } from 'src/index'
 import { Ribbon } from 'src/ribbon'
 import typia from 'typia'
 
-test('Test ProvidersResponse', async () => {
+test('Test SearchProvidersResponse', async () => {
     const ribbon = new Ribbon({
         url: 'https://api.ribbonhealth.com/v1',
         apiKey: process.env.RIBBON_API_KEY as string,
     })
 
-    const response = await ribbon.providers.search({ name: 'childrens hospital', page_size: 1 })
+    const response = await ribbon.providers.search({ name: 'childrens hospital' })
 
-    typia.assert<ProvidersResponse>(response)
+    typia.assert<SearchProvidersResponse>(response)
 })

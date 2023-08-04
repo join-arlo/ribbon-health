@@ -1,7 +1,7 @@
-import { RibbonEndpoint } from 'src/endpoints/Common'
-import { Insurance, InsuranceSearchCriteria } from 'src/endpoints/Insurance'
-import { ResponseWithSearchOptions, AddressDetails, SearchRequest } from 'src/endpoints/Common'
-import { FocusAreaSearchCriteria } from 'src/endpoints/Provider'
+import { RibbonEndpoint } from 'src/ribbon'
+import { Insurance } from 'src/endpoints/Insurance'
+import { RibbonSearchResponseParameterized, RibbonSearchRequest } from 'src/ribbon'
+import { AddressDetails } from 'src/types/AddressDetails'
 
 export type Location = {
     name: string | null
@@ -28,7 +28,8 @@ export type Location = {
     google_maps_link: string | null
 }
 
-export type LocationSearchCriteria = {
+export type SearchLocationsParameters = {
+    //SearchLocationsParameters
     name?: string
     address?: string
     location_ids?: string[]
@@ -38,20 +39,12 @@ export type LocationSearchCriteria = {
     _excl_location_types?: string[]
     location?: [number, number]
     min_confidence?: number
-}
 
-export type LocationOrganizationSearchCriteria = {
+    // Organization
     organization_ids?: string[]
     _excl_organization_ids?: string[]
 }
 
-export type LocationSearchAllCriteria = LocationSearchCriteria &
-    InsuranceSearchCriteria &
-    FocusAreaSearchCriteria &
-    LocationOrganizationSearchCriteria
-
-export type LocationsRequest = SearchRequest<LocationSearchAllCriteria>
-
-export type LocationsResponse = ResponseWithSearchOptions<Location, LocationSearchAllCriteria>
-
-export class Locations extends RibbonEndpoint<LocationsRequest, LocationsResponse> {}
+export type SearchLocationsRequest = RibbonSearchRequest<SearchLocationsParameters>
+export type SearchLocationsResponse = RibbonSearchResponseParameterized<Location, SearchLocationsParameters>
+export class Locations extends RibbonEndpoint<SearchLocationsRequest, SearchLocationsResponse> {}

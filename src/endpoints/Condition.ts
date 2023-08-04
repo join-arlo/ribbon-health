@@ -1,4 +1,4 @@
-import { ResponsePaginatedWithSearchOptions, SearchRequest } from 'src/endpoints/Common'
+import { RibbonSearchResponsePaginated, RibbonSearchRequest } from 'src/ribbon'
 import { Value } from 'src/types/Value'
 
 export type ConditionModule = 'focus_areas' | 'condition_cost_estimate'
@@ -10,12 +10,11 @@ export type Condition = {
     specialties: Value[] | null
 }
 
-export type ConditionSearchOptions = {
+export type SearchConditionParameters = {
     search?: string
     specialty_ids?: string[]
     module?: ConditionModule
 }
 
-export type ConditionsRequest = SearchRequest<ConditionSearchOptions>
-
-export type ConditionsResponse = ResponsePaginatedWithSearchOptions<Condition, ConditionSearchOptions>
+export type ConditionsRequest = RibbonSearchRequest<SearchConditionParameters>
+export type ConditionsResponse = RibbonSearchResponsePaginated<Condition, SearchConditionParameters>

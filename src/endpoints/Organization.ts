@@ -1,9 +1,8 @@
 import {
-    AddressDetails,
-    ResponseWithSearchOptions,
-    PaginationAndSearchConfigurationOptions,
-    SearchRequest,
-} from 'src/endpoints/Common'
+    RibbonSearchResponseParameterized,
+    RibbonSearchRequest,
+} from 'src/ribbon'
+import { AddressDetails } from 'src/types/AddressDetails'
 
 export type Organization = {
     uuid: string
@@ -26,13 +25,12 @@ export type Organization = {
     }[]
 }
 
-export type OrganizationSearchOptions = {
+export type SearchOrganizationsParameters = {
     address?: string
     name?: string
     distance?: number
     location?: [number, number]
 }
 
-export type OrganizationsRequest = SearchRequest<OrganizationSearchOptions>
-
-export type OrganizationsResponse = ResponseWithSearchOptions<Organization, OrganizationSearchOptions>
+export type SearchOrganizationsRequest = RibbonSearchRequest<SearchOrganizationsParameters>
+export type SearchOrganizationsResponse = RibbonSearchResponseParameterized<Organization, SearchOrganizationsParameters>

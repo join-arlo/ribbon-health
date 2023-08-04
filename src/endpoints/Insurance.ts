@@ -1,42 +1,34 @@
-import { SearchRequest, ResponsePaginatedWithSearchOptions } from 'src/endpoints/Common'
+import { RibbonSearchRequest, RibbonSearchResponsePaginated, RibbonEndpoint } from 'src/ribbon'
 
 export type Insurance = {
     uuid: string
-    carrier_association: string
-    carrier_brand: string
-    carrier_name: string
+    carrier_association: string | null
+    carrier_brand: string | null
+    carrier_name: string | null
     state: string | null
     plan_name: string | null
     plan_type: string | null
     metal_level: string | null
     display_name: string | null
     network: string | null
-    confidence: number
-    category?: string
-    codes?: string[]
+    confidence: number | null
 }
 
-export type InsuranceSearchOptions = {
+export type SearchInsurancesParameters = {
     search?: string
-    uuid?: string
-    carrier_association?: string
-    carrier_brand?: string
-    carrier_name?: string
+    carrier_association?: string[]
+    carrier_brand?: string[]
+    carrier_name?: string[]
     state?: string
     plan_name?: string
     plan_type?: string
     display_name?: string
-    category?: string
+    category?: string[]
+    _excl_category?: string[]
     codes?: string
     partial_codes?: string
 }
 
-export type InsuranceSearchCriteria = {
-    insurance_ids?: string[]
-    _excl_insurance_ids?: string[]
-    insurance_carrier_name?: string
-}
-
-export type InsurancesRequest = SearchRequest<InsuranceSearchOptions>
-
-export type InsurancesResponse = ResponsePaginatedWithSearchOptions<Insurance, InsuranceSearchOptions>
+export type SearchInsurancesRequest = RibbonSearchRequest<SearchInsurancesParameters>
+export type SearchInsurancesResponse = RibbonSearchResponsePaginated<Insurance, SearchInsurancesParameters>
+export class Insurances extends RibbonEndpoint<SearchInsurancesRequest, SearchInsurancesResponse> {}

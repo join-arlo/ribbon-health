@@ -4,10 +4,10 @@
 
 -   [x] Providers
 -   [x] Locations
+-   [x] Insurances
 -   [ ] Clinical Areas
 -   [ ] Condition Cost Estimate
 -   [ ] Conditions
--   [ ] Insurances
 -   [ ] Languages
 -   [ ] Organizations
 -   [ ] Procedure Cost Estimate

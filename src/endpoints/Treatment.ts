@@ -1,8 +1,7 @@
 import {
-    PaginationAndSearchConfigurationOptions,
-    SearchRequest,
-    ResponsePaginatedWithSearchOptions,
-} from 'src/endpoints/Common'
+    RibbonSearchRequestPaginated,
+    RibbonSearchResponsePaginated,
+} from 'src/ribbon'
 import { Value } from 'src/types/Value'
 
 export type TreatmentType = 'providers' | 'locations'
@@ -14,12 +13,11 @@ export type Treatment = {
     specialties: Value[]
 }
 
-export type TreatmentSearchOptions = PaginationAndSearchConfigurationOptions<Treatment> & {
+export type SearchTreatmentsParameters = {
     search?: string
     specialty_ids?: string[]
     type?: TreatmentType
 }
 
-export type TreatmentsRequest = SearchRequest<TreatmentSearchOptions>
-
-export type TreatmentsResponse = ResponsePaginatedWithSearchOptions<Treatment, TreatmentSearchOptions>
+export type SearchTreatmentsRequest = RibbonSearchRequestPaginated<SearchTreatmentsParameters>
+export type SearchTreatmentsResponse = RibbonSearchResponsePaginated<Treatment, SearchTreatmentsParameters>

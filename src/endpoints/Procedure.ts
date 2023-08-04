@@ -1,14 +1,13 @@
-import { SearchRequest, ResponsePaginatedWithSearchOptions } from 'src/endpoints/Common'
+import { RibbonSearchRequest, RibbonSearchResponsePaginated } from 'src/ribbon'
 
 export type Procedure = {
     uuid: string
     display_name: string
 }
 
-export type ProcedureSearchOptions = {
+export type SearchProceduresParameters = {
     search?: string
 }
 
-export type ProceduresRequest = SearchRequest<ProcedureSearchOptions>
-
-export type ProceduresResponse = ResponsePaginatedWithSearchOptions<Procedure, ProcedureSearchOptions>
+export type SearchProceduresRequest = RibbonSearchRequest<SearchProceduresParameters>
+export type SearchProceduresResponse = RibbonSearchResponsePaginated<Procedure, SearchProceduresParameters>
