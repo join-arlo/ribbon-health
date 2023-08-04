@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",
+        "paths": { "src/*": ["./src/*"] },
+        "declaration": true,
+        "outDir": "dist",
+        "strict": true,
+        "esModuleInterop": true,
+        "plugins": [
+            { "transform": "typescript-transform-paths" },
+            {
+                "transform": "typescript-transform-paths",
+                "afterDeclarations": true
+            }
+        ]
+    }
+}

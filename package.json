@@ -1,0 +1,20 @@
+{
+    "name": "ribbon-health",
+    "version": "0.0.1",
+    "description": "TypeScript Client for the Ribbon Health API",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "ttsc",
+        "dev": "ttsc -w",
+        "lint": "prettier --check .",
+        "lint:fix": "prettier --write ."
+    },
+    "author": "join-arlo",
+    "devDependencies": {
+        "prettier": "^3.0.1",
+        "ttsc": "^0.3.1",
+        "typescript": "^5.1.6",
+        "typescript-transform-paths": "^3.4.6"
+    }
+}
