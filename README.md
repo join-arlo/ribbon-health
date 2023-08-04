@@ -2,8 +2,8 @@
 
 # TODO
 
--   [ ] Providers
--   [ ] Locations
+-   [x] Providers
+-   [x] Locations
 -   [ ] Clinical Areas
 -   [ ] Condition Cost Estimate
 -   [ ] Conditions
