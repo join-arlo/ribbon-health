@@ -83,7 +83,7 @@ export type Provider = {
 }
 
 export type SearchProvidersParameters = {
-    // ProviderSearchCriteria
+    // Provider Search Criteria
     npis?: string[] | number[]
     name?: string
     provider_types?: string[]
@@ -95,17 +95,26 @@ export type SearchProvidersParameters = {
     _excl_language?: string
     min_rating?: number
 
-    //LocationSearchCriteria
-    location_within_distance?: boolean
-    virtual_search?: boolean
+    //Location Search Criteria
+    address?: string
+    location_ids?: string[]
+    _excl_location_ids?: string[]
+    location?: string[]
     min_location_confidence?: number
+    min_confidence?: number
+    location_within_distance?: boolean
+    distance?: number
+    virtual_search?: boolean
 
-    // ProviderInsurancesSearchCriteria
+    // Insurance Search Criteria
+    insurance_ids?: string[]
+    _excl_insurance_ids?: string[]
+    insurance_carrier_name?: string
     location_insurance_ids?: string[]
     _excl_location_insurance_ids?: string[]
     national_bluecard?: boolean
 
-    // SpecialtySearchCriteria
+    // Specialty Search Criteria
     specialty_ids?: string[]
     _excl_specialty_ids?: string[]
     specialty?: string
@@ -115,7 +124,7 @@ export type SearchProvidersParameters = {
     specialty_primary?: string
     _excl_specialty_primary?: string
 
-    // ProcedureSearchCriteria
+    // Procedure Search Criteria
     procedure_ids?: string[]
     _excl_procedure_ids?: string[]
     procedure?: string

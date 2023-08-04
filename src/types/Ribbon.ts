@@ -6,6 +6,8 @@ export type RibbonSearchRequestPaginated<T> = T & {
     page?: number
     page_size?: number
     max_locations?: number
+    fields?: string[]
+    _excl_fields?: string[]
 }
 
 type RibbonSearchResponseParameters<T> = T & {

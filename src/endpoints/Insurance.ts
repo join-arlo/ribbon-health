@@ -15,6 +15,7 @@ export type Insurance = {
 }
 
 export type SearchInsurancesParameters = {
+    // Insurance Search Parameters
     search?: string
     carrier_association?: string[]
     carrier_brand?: string[]

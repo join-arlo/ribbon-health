@@ -1,50 +1,49 @@
-import { RibbonEndpoint } from 'src/types/Ribbon'
+import { RibbonEndpoint, RibbonSearchRequestPaginated } from 'src/types/Ribbon'
 import { Insurance } from 'src/endpoints/Insurance'
 import { RibbonSearchResponseParameterized, RibbonSearchRequest } from 'src/types/Ribbon'
 import { AddressDetails } from 'src/types/AddressDetails'
 
 export type Location = {
-    name: string | null
     uuid: string
+    name: string | null
     address: string
+    address_details: AddressDetails
     latitude: number
-    longitude: number
-    confidence: number
-    insurances: Insurance[]
+    google_maps_link: string | null
     phone_numbers: {
         phone: string
         detail?: string
         details?: string
     }[]
-    cms_data?: {
-        cms_certification_number?: string
-        cms_hospital_overall_rating?: number | null
-        cms_hcahps_overall_hospital_star_rating?: number | null
-    }[]
-    npis: string[]
-    distance?: number
-    location_types: string[]
-    address_details: AddressDetails
-    google_maps_link: string | null
+    longitude: number
+    confidence: number
 }
 
 export type SearchLocationsParameters = {
-    //SearchLocationsParameters
-    name?: string
+    // Location Search Options
     address?: string
-    location_ids?: string[]
-    _excl_location_ids?: string[]
+    name?: string
     distance?: number
     location_types?: string[]
     _excl_location_types?: string[]
     location?: [number, number]
+    location_ids?: string[]
+    _excl_location_ids?: string[]
+    insurance_carrier_name?: string
     min_confidence?: number
+    national_bluecard?: boolean
 
-    // Organization
+    // Organization Search Criteria
     organization_ids?: string[]
     _excl_organization_ids?: string[]
+
+    // Focus Area Search Criteria
+    clinical_area?: string
+    clinical_area_ids?: string[]
+    treatment?: string
+    treatment_ids?: string[]
 }
 
-export type SearchLocationsRequest = RibbonSearchRequest<SearchLocationsParameters>
+export type SearchLocationsRequest = RibbonSearchRequestPaginated<SearchLocationsParameters>
 export type SearchLocationsResponse = RibbonSearchResponseParameterized<Location, SearchLocationsParameters>
 export class Locations extends RibbonEndpoint<SearchLocationsRequest, SearchLocationsResponse> {}
