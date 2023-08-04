@@ -5,7 +5,7 @@ import typia from 'typia'
 test('Test LocationsResponse', async () => {
     const ribbon = new Ribbon({
         url: 'https://api.ribbonhealth.com/v1',
-        apiKey: '5b8da1b7eac46318035576dda4340b200bbbd4e7',
+        apiKey: process.env.RIBBON_API_KEY as string,
     })
 
     const response = await ribbon.locations.search({ name: 'childrens hospital' })
