@@ -9,7 +9,7 @@ import {
     RibbonEndpoint,
     SearchRequest,
 } from 'src/endpoints/Common'
-import { LocationSearchCriteria } from 'src/endpoints/Location'
+import { Location, LocationSearchCriteria } from 'src/endpoints/Location'
 
 type ProviderLocation = Location & {
     faxes?: {
@@ -23,8 +23,6 @@ type ProviderSpecialty = Specialty & {
 }
 
 export type Provider = {
-    uuid: string
-    version_id: string | null
     npi: string
     first_name?: string
     middle_name?: string | null

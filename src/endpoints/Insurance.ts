@@ -6,10 +6,10 @@ export type Insurance = {
     carrier_brand: string
     carrier_name: string
     state: string | null
-    plan_name: string
+    plan_name: string | null
     plan_type: string | null
     metal_level: string | null
-    display_name: string
+    display_name: string | null
     network: string | null
     confidence: number
     category?: string

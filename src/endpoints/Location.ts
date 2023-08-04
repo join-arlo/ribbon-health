@@ -21,17 +21,15 @@ export type Location = {
         cms_hospital_overall_rating?: number | null
         cms_hcahps_overall_hospital_star_rating?: number | null
     }[]
-    npis?: string[]
+    npis: string[]
     distance?: number
     location_types: string[]
     address_details: AddressDetails
     google_maps_link: string | null
-    aha_id?: string
-    version_id?: string
-    parent_aha_id?: string | null
 }
 
 export type LocationSearchCriteria = {
+    name?: string
     address?: string
     location_ids?: string[]
     _excl_location_ids?: string[]

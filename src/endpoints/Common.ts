@@ -39,8 +39,6 @@ export type PaginationAndSearchConfigurationOptions<T> = {
     page?: number
     page_size?: number
     max_locations?: number
-    fields?: keyof T[]
-    _excl_fields?: keyof T[]
 }
 
 export type SearchRequest<T> = T
@@ -128,7 +126,13 @@ export class RibbonEndpoint<TRequest extends RequestSearchOptions, TResponse> {
     }
 
     async search(params: TRequest): Promise<TResponse> {
-        const url = `${this.options.url}${this.endpoint}${serializeRequestSearchOptions(params)}`
+        let url = `${this.options.url}${this.endpoint}`
+
+        const urlParms = serializeRequestSearchOptions(params)
+
+        if (urlParms) {
+            url = `${url}?${urlParms}`
+        }
 
         const response = await fetch(url, {
             headers: {
