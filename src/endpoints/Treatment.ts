@@ -1,7 +1,4 @@
-import {
-    RibbonSearchRequestPaginated,
-    RibbonSearchResponsePaginated,
-} from 'src/types/Ribbon'
+import { RibbonSearchRequestPaginated, RibbonSearchResponsePaginated } from 'src/types/Ribbon'
 import { Value } from 'src/types/Value'
 
 export type TreatmentType = 'providers' | 'locations'

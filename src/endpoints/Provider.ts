@@ -3,11 +3,7 @@ import { Organization } from 'src/endpoints/Organization'
 import { Specialty } from 'src/endpoints/Specialty'
 import { Gender } from 'src/types/Gender'
 import { Value } from 'src/types/Value'
-import {
-    RibbonSearchResponseParameterized,
-    RibbonEndpoint,
-    RibbonSearchRequestPaginated,
-} from 'src/types/Ribbon'
+import { RibbonSearchResponseParameterized, RibbonEndpoint, RibbonSearchRequestPaginated } from 'src/types/Ribbon'
 import { Location } from 'src/endpoints/Location'
 
 type ProviderLocation = Location & {

@@ -1,7 +1,4 @@
-import {
-    RibbonSearchRequest,
-    RibbonSearchResponsePaginated,
-} from 'src/types/Ribbon'
+import { RibbonSearchRequest, RibbonSearchResponsePaginated } from 'src/types/Ribbon'
 
 export type Specialty = {
     uuid: string

@@ -1,7 +1,4 @@
-import {
-    RibbonSearchResponseParameterized,
-    RibbonSearchRequest,
-} from 'src/types/Ribbon'
+import { RibbonSearchResponseParameterized, RibbonSearchRequest } from 'src/types/Ribbon'
 import { AddressDetails } from 'src/types/AddressDetails'
 
 export type Organization = {
