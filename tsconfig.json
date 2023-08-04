@@ -1,32 +1,27 @@
 {
-  "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "paths": {
-      "src/*": [
-        "./src/*"
-      ]
-    },
-    "declaration": true,
-    "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "plugins": [
-      {
-        "transform": "typescript-transform-paths"
-      },
-      {
-        "transform": "typescript-transform-paths",
-        "afterDeclarations": true
-      },
-      {
-        "transform": "typia/lib/transform"
-      }
-    ],
-    "rootDirs": [
-      "src",
-      "tests"
-    ],
-    "strictNullChecks": true
-  }
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",
+        "paths": {
+            "src/*": ["./src/*"]
+        },
+        "declaration": true,
+        "outDir": "dist",
+        "strict": true,
+        "esModuleInterop": true,
+        "plugins": [
+            {
+                "transform": "typescript-transform-paths"
+            },
+            {
+                "transform": "typescript-transform-paths",
+                "afterDeclarations": true
+            },
+            {
+                "transform": "typia/lib/transform"
+            }
+        ],
+        "rootDirs": ["src", "tests"],
+        "strictNullChecks": true
+    }
 }
